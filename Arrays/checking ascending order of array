@@ -1,0 +1,30 @@
+//checking if array is sorted in ascending order
+#include<iostream>
+using namespace std;
+
+bool chksort(int arr[],int s)
+{
+    for(int i=0;i<s;i++)
+    {
+        if(arr[i]>arr[i+1])
+        return false;
+    }
+  return true; 
+}
+
+int main()
+{
+    int s;
+    cout<<"enter size\n";
+    cin>>s;
+    int arr[s];
+    cout<<"enter elements\n";
+    for(int i=0;i<s;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    cout<<chksort(arr,s);
+    
+    return 0;
+}
