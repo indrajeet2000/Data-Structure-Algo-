@@ -1,0 +1,31 @@
+//largest number in an array
+#include<iostream>
+using namespace std;
+
+int largest(int arr[],int s)
+{
+    int l;
+    for(int i=0;i<s;i++)
+    {
+        if(arr[i]<arr[i+1])
+        l=i+1;
+    }
+    cout<<"largest:"<<l;
+    return 0;
+}
+
+int main()
+{
+    int s;
+    cout<<"enter size\n";
+    cin>>s;
+    int arr[s];
+    cout<<"enter elements\n";
+    for(int i=0;i<s;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    largest(arr,s);
+    return 0;
+}
