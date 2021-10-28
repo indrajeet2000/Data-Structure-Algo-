@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+int seclargest( int arr[], int s)
+{int l,sl;
+    
+    if(arr[1]>arr[0])
+    {
+     l=arr[1];
+     sl=arr[0];
+    }
+    
+    else
+    {
+        l=arr[0];
+        sl=arr[1];
+    }
+    for(int i=1; i<s-1; i++)
+    {
+        if(arr[i]<arr[i+1])
+        {
+            sl=l;
+            l=arr[i+1];
+        }
+        
+        else if( sl<arr[i+1])
+        {
+            sl=arr[i];
+        }
+    }
+    cout<<"largest ->"<<l<<"\nsecond ->"<<sl;
+    return 0;
+}
+
+int main()
+{
+    cout<<"enter the size of array\n";
+    int s;
+    cin>>s;
+    int arr[s];
+    cout<<"enter the elements\n";
+    for(int i=0;i<s;i++)
+    {
+        cin>>arr[i];
+    }
+    seclargest(arr, s);
+    return 0;
+}
