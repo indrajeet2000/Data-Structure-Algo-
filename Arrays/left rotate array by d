@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+
+int leftrotatebyd(int arr[], int s)
+{
+    cout<<"how many rotation do you want\n";
+    int d; 
+    cin>>d;
+    int temp[d];
+    for(int i=0;i<d;i++)
+    {
+        temp[i]=arr[i];
+    }
+    for(int i=0;i<s-d;i++)
+    {
+        arr[i]=arr[i+d];
+    }
+    for(int i=0;i<d;i++)
+    {
+        arr[i+s-d]=temp[i];
+    }
+    cout<<"left rotated array is -> ";
+    for(int i=0;i<s;i++)
+    {
+        cout<<arr[i];
+    }
+    return 0;
+}
+
+int main()
+{
+    int s;
+    cout<<"enter the size of the elements\n";
+    cin>>s;
+    int arr[s];
+    cout<<"enter the elements of the array one by one\n";
+    for(int i=0;i<s;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    leftrotatebyd(arr,s);
+    
+    return 0;
+}
