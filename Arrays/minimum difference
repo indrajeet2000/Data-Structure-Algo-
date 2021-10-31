@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+int maxdiff(int arr[], int s)
+{
+    int res=arr[1]-arr[0];
+    int minval=arr[0];
+    for(int i=1;i<s;i++)
+    {
+        res=max(res,arr[i]-minval);
+        minval=min(minval,arr[i]);
+    }
+    cout<<"min diff is -> "<<minval;
+    return 0;
+}
+
+int main()
+{
+    int s;
+    cout<<"enter the size\n";
+    cin>>s;
+    cout<<"enter the elements one by one\n";
+    int arr[s];
+    for(int i=0;i<s;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    maxdiff(arr, s);
+    
+    return 0;
+}
