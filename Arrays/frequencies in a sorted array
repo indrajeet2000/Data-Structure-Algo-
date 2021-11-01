@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+int frequency(int arr[], int s)
+{
+    int temp=arr[0];
+    int c=1;
+    for(int i=1;i<s;i++)
+    {
+        if(temp==arr[i])
+        {
+            c++;
+        }
+        
+        else
+        {
+            cout<<temp<<" -> "<<c<<endl;
+            temp=arr[i];
+            c=1;
+        }
+    }
+    cout<<temp<<" -> "<<c;
+    
+    return 0;
+}
+
+int main()
+{
+    int s=0;
+    cout<<"enter the size\n";
+    cin>>s;
+    int arr[s];
+    cout<<"enter the elements in a sorted manner one by one\n";
+    for(int i=0;i<s;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    frequency(arr, s);
+    
+    return 0;
+}
