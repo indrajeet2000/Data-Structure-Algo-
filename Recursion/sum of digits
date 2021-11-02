@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int sum_digits(int n)
+{
+    if(n<10)
+    return n;
+    
+    return sum_digits(n/10)+n%10;
+}
+
+int main()
+{
+    int n;
+    cout<<"enter a number\n";
+    cin>>n;
+    cout<<"sum of digits is -> "<<sum_digits(n);
+    
+    return 0;
+}
