@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void one_to_n(int n)
+{
+    if(n==0)
+    return ;
+    
+    one_to_n(n-1);
+    
+    cout<<n<<" ";
+}
+
+int main()
+{
+    int n;
+    cout<<"enter a number\n";
+    cin>>n;
+    one_to_n(n);
+    
+    return 0;
+}
