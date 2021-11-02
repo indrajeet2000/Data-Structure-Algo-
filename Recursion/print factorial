@@ -3,7 +3,7 @@ using namespace std;
 
 int fact(int n)
 {
-    if(n==1 || n==0)
+    if(n==1 || n==0)  // we could also use "n <= 1" as if the formal parameter is negative only this condiation will work
     return 1;
     
     return n*fact(n-1);
