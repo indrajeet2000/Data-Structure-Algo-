@@ -1,0 +1,24 @@
+// structure as parameter (call by value)
+#include<iostream>
+using namespace std;
+
+struct rectangle 
+{
+    int l;
+    int b;
+};
+
+int area(struct rectangle x)
+{
+    return x.l*x.b;
+}
+
+
+int main()
+{
+    cout<<"enter l and b of rectangle\n";
+    struct rectangle a;
+    cin>>a.l>>a.b;
+    cout<<"area is "<<area(a);
+    return 0;
+}
