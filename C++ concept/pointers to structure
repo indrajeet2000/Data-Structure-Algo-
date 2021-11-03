@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+struct rectangle
+{
+    int l;
+    int b;
+};
+
+int main()
+{
+    struct rectangle r;
+    r.l=20;
+    cout<<r.l<<" ";
+    struct rectangle *p=&r;
+    (*p).l=15;
+    cout<<(*p).l<<" ";
+    p->l=10;
+    cout<<p->l<<" ";
+    
+    return 0;
+}
