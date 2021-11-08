@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+void hanoi(int n, int a, int b, int c)
+{
+    if(n>0)
+    {
+        hanoi(n-1,a,c,b);
+        cout<<"move from "<<a<<" to "<<c<<endl;
+        hanoi(n-1,b,a,c);
+    }
+}
+
+int main()
+{
+    int n;
+    cout<<"enter the number of tower\n";
+    cin>>n;
+    hanoi(n,1,2,3);
+    return 0;
+}
