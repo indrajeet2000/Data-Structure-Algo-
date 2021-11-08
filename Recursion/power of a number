@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int power(int r, int x)
+{
+    int p;
+    if(x==0)
+    {
+        return 1;
+    }
+    
+    return power(r,x-1)*r;
+}
+
+int main()
+{
+    int r,x;
+    cout<<"enter the number for which the power will be calculated\n";
+    cin>>r;
+    cout<<"enter the power\n";
+    cin>>x;
+    cout<<"power is -> "<<power(r,x);
+    return 0;
+}   
