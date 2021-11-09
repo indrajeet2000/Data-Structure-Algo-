@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node *next;
+}*first=NULL;
+
+void create(int a[], int n)
+{
+    struct node *t,*last;
+    first=new node;
+    first->data=a[0];
+    first->next=NULL;
+    last=first;
+    
+    int i;
+    for(i=1;i<n;i++)
+    {
+        t=new node;
+        t->data=a[i];
+        t->next=NULL;
+        last->next=t;
+        last=t;
+    }
+}
+
+void display(struct node *p)
+{
+   while(p!=0)
+   {
+       cout<<p->data<<" ";
+       p=p->next;
+   }
+}
+
+int main()
+{
+    int n;
+    cout<<"enter the size of linked list\n";
+    cin>>n;
+    int a[n];
+    cout<<"enter the number the number one by one\n";
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    create(a,n);
+    
+    display(first);
+    
+    return 0;
+}
