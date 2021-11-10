@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node *next;
+}*first=NULL;
+
+void create(int a[],int n)
+{
+    struct node *t,*last;
+    first=new node;
+    first->data=a[0];
+    first->next=NULL;
+    last=first;
+    int i;
+    for(i=1;i<n;i++)
+    {
+        t=new node;
+        t->data=a[i];
+        t->next=NULL;
+        last->next=t;
+        last=t;
+    }
+}
+
+int rcount(struct node *p)
+{
+    if(p)                                      // if(p!=NULL)
+    {                                          // rcount(p->next)+1
+        return rcount(p=p->next)+1;
+    }
+    
+    return 0;
+}
+
+int main()
+{
+    int n;
+    cout<<"enter the size of the linked list\n";
+    cin>>n;
+    cout<<"enter the elements one by one\n";
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    create(a,n);
+    cout<<"count is -> "<<rcount(first);
+    return 0;
+}
