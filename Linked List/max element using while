@@ -1,0 +1,55 @@
+#include<iostream>
+#include<climits>
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node *next;
+}*first=NULL;
+
+void create(int a[], int n)
+{
+    struct node *t,*last;
+    first=new node;
+    first->data=a[0];
+    first->next=NULL;
+    last=first;
+    int i;
+    for(i=1;i<n;i++)
+    {
+        t=new node;
+        t->data=a[i];
+        t->next=NULL;
+        last->next=t;
+        last=t;
+    }
+}
+
+int maxi(struct node *p)
+{
+    int m=INT32_MIN;
+    while(p)
+    {
+        if(p->data>m)
+            m=p->data;
+        p=p->next;
+    }
+    return m;
+}
+
+int main()
+{
+    int n;
+    cout<<"enter the size of the linked list\n";
+    cin>>n;
+    cout<<"enter the elements one by one\n";
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    create(a,n);
+    cout<<"max element is -> "<<maxi(first);
+    return 0;
+}
