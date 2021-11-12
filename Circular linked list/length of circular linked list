@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node *next;
+}*head;
+
+void create(int a[], int n)
+{
+    struct node*t,*last;
+    head=new node;
+    head->data=a[0];
+    head->next=head;
+    last=head;
+    
+    int i;
+    for(i=1;i<n;i++)
+    {
+        t=new node;
+        t->data=a[i];
+        t->next=last->next;
+        last->next=t;
+        last=t;
+    }
+}
+
+
+void length(struct node *p)
+{
+    int c=1;
+    p=p->next;
+    while(p!=head)
+    {
+        c++;
+        p=p->next;
+    }
+    cout<<"lenght is -> "<<c;
+}
+
+int main()
+{
+   int a[]={2,3,4,5,6};
+   create(a,5);
+   length(head);
+   return 0;
+}
