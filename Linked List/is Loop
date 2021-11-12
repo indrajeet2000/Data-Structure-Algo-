@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node *next;
+}*first=NULL;
+
+void create(int a[], int n)
+{
+    struct node *t,*last;
+    first=new node;
+    first->data=a[0];
+    first->next=NULL;
+    last=first;
+    
+    int i;
+    for(i=1;i<n;i++)
+    {
+        t=new node;
+        t->data=a[i];
+        t->next=NULL;
+        last->next=t;
+        last=t;
+    }
+}
+
+int isLoop(struct node *x)
+{
+    struct node *p,*q;
+    p=q=new node;
+    p->next=q->next=x;
+    
+    do
+    {
+        p=p->next->next;
+        q=q->next;
+        if(p==q)
+        return true;
+    }
+    while(p && q);
+    
+    return false;
+}
+
+int main()
+{
+    int a[]={10,20,30,40,50};
+    create(a,5);
+    cout<<" ---> "<<isLoop(first);
+}
