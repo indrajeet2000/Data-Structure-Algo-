@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct stacks
+{
+    int size;
+    int top;
+    int *s;
+};
+
+void create(struct stacks *st)
+{
+    cout<<"enter the size\n";
+    cin>>st->size;
+    st->top=-1;
+    st->s=new int[st->size];
+}
+
+int main()
+{
+    struct stacks st;
+    create(&st);
+    return 0;
+}
