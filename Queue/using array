@@ -1,55 +1,84 @@
-//Queue using CPP
-#include <iostream>
+//queue using array
+#include<bits/stdc++.h>
 using namespace std;
-class Queue
+
+class queues
 {
-private:
-int front;
-int rear;
-int size;
-int *Q;
-public:
-Queue(){front=rear=-1;size=10;Q=new int[size];}
-Queue(int size){front=rear=-1;this-
->size=size;Q=new int[this->size];}
-void enqueue(int x);
-int dequeue();
-void Display();
+    private:
+    int front;
+    int rear;
+    int size;
+    int *array;
+    
+    public:
+    queues()
+    {
+        front=rear=-1;
+        size=10;
+        array=new int [size];
+    }
+    queues(int size)
+    {
+        front=rear=-1;
+        this->size=size;
+        array=new int[this->size];
+    }
+    
+    void enqueue(int x);
+    int deqeue();
+    void display();
 };
-void Queue::enqueue(int x)
+
+void queues::enqueue(int x)
 {
-if(rear==size-1)
-printf("Queue Full\n");
-else
+    if(rear==size-1)
+    {
+        cout<<"queue is full\n";
+    }
+    else
+    {
+        rear++;
+        array[rear]=x;
+    }
+}
+
+int queues::deqeue()
 {
-rear++;
-Q[rear]=x;
+    int x=-1;
+    
+    if(front==rear)
+    {
+        cout<<"queue is empty\n";
+    }
+    
+    else
+    {
+        front++;
+        x=array[front];
+    }
+    
+    return x;
 }
-}
-int Queue::dequeue()
+
+void queues::display()
 {
-int x=-1;
-if(front==rear)
-printf("Queue is Empty\n");
-else
-{
-x=Q[front+1];
-front++;
+    cout<<"queue using array : ";
+    for(int i=front+1; i<=rear; i++)
+    {
+        cout<<array[i]<<" ";
+    }
+    cout<<"\n";
 }
-return x;
-}
-void Queue::Display()
-{
-for(int i=front+1;i<=rear;i++)
-printf("%d ",Q[i]);
-printf("\n");
-}
+
 int main()
 {
-Queue q(5);
-q.enqueue(10);
-q.enqueue(20);
-q.enqueue(30);
-q.Display();
-return 0;
+    queues q(5);
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    q.deqeue();
+    q.display();
+    
+    return 0;
+    
 }
