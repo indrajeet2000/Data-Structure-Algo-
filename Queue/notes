@@ -1,0 +1,4 @@
+queue using array, we should define front = rear = -1, as when rear = size , it will be full and when rear = front it will be empty.
+but if we start rear = front = 0, then when only front > rear, then it'll be empty, as we are starting from 0, i.e. array[rear], not like first incrementing rear, that's rear++
+
+* visualise above thing or see the video of queue using array again *
